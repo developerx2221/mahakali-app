@@ -1,0 +1,822 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Dhanraj Makwana | Android App Developer</title>
+
+    <meta name="description"
+          content="Contact Dhanraj Makwana for Android app development, custom mobile applications, freelance projects and budget-friendly app development.">
+
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: Arial, Helvetica, sans-serif;
+            background: #fff8ec;
+            color: #2b1608;
+            line-height: 1.6;
+        }
+
+        a {
+            text-decoration: none;
+        }
+
+        /* NAVBAR */
+
+        nav {
+            width: 100%;
+            padding: 18px 7%;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            background: #7b1e1e;
+            position: sticky;
+            top: 0;
+            z-index: 100;
+            box-shadow: 0 3px 15px rgba(0,0,0,0.15);
+        }
+
+        .logo {
+            font-size: 22px;
+            font-weight: 800;
+            color: #ffffff;
+        }
+
+        .logo span {
+            color: #ffd166;
+        }
+
+        .nav-button {
+            background: #ffd166;
+            color: #5b160f !important;
+            padding: 10px 18px;
+            border-radius: 8px;
+            font-weight: 700;
+            font-size: 14px;
+        }
+
+        /* HERO */
+
+        .hero {
+            min-height: 580px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            padding: 80px 20px;
+            position: relative;
+            overflow: hidden;
+            background: linear-gradient(
+                rgba(123,30,30,0.94),
+                rgba(91,22,15,0.96)
+            );
+            color: white;
+        }
+
+        .hero::before {
+            content: "";
+            position: absolute;
+            width: 450px;
+            height: 450px;
+            background: #ffd166;
+            filter: blur(180px);
+            opacity: 0.15;
+            top: -150px;
+            left: 50%;
+            transform: translateX(-50%);
+        }
+
+        .hero-content {
+            max-width: 850px;
+            position: relative;
+            z-index: 2;
+        }
+
+        .badge {
+            display: inline-block;
+            padding: 8px 18px;
+            border: 1px solid rgba(255,209,102,0.6);
+            background: rgba(255,209,102,0.12);
+            border-radius: 30px;
+            color: #ffd166;
+            font-size: 14px;
+            margin-bottom: 25px;
+        }
+
+        .hero h1 {
+            font-size: clamp(42px, 7vw, 72px);
+            line-height: 1.08;
+            margin-bottom: 25px;
+        }
+
+        .hero h1 span {
+            color: #ffd166;
+        }
+
+        .hero p {
+            max-width: 680px;
+            margin: auto;
+            color: #ffe8c0;
+            font-size: 18px;
+        }
+
+        .hero-buttons {
+            margin-top: 35px;
+            display: flex;
+            justify-content: center;
+            gap: 15px;
+            flex-wrap: wrap;
+        }
+
+        /* COMMON BUTTONS */
+
+        .primary-btn,
+        .secondary-btn {
+            display: inline-block;
+            padding: 14px 25px;
+            border-radius: 9px;
+            font-weight: 700;
+            transition: 0.25s;
+        }
+
+        .primary-btn {
+            background: #ffd166;
+            color: #5b160f !important;
+        }
+
+        .secondary-btn {
+            background: #7b1e1e;
+            border: 1px solid #7b1e1e;
+            color: #ffffff !important;
+        }
+
+        .primary-btn:hover,
+        .secondary-btn:hover {
+            transform: translateY(-3px);
+        }
+
+        /* CONTAINER */
+
+        .container {
+            width: 86%;
+            max-width: 1100px;
+            margin: auto;
+        }
+
+        section {
+            padding: 80px 0;
+        }
+
+        .section-title {
+            text-align: center;
+            margin-bottom: 45px;
+        }
+
+        .section-title h2 {
+            font-size: 38px;
+            color: #7b1e1e;
+            margin-bottom: 10px;
+        }
+
+        .section-title p {
+            color: #765e4c;
+        }
+
+        /* ABOUT */
+
+        .about-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 25px;
+        }
+
+        .glass-card {
+            background: #ffffff;
+            border: 1px solid #ead9bd;
+            border-radius: 18px;
+            padding: 30px;
+            box-shadow: 0 6px 20px rgba(91,40,10,0.08);
+        }
+
+        .glass-card h3 {
+            margin-bottom: 15px;
+            font-size: 22px;
+            color: #7b1e1e;
+        }
+
+        .glass-card p {
+            color: #634e3d;
+        }
+
+        /* SERVICES */
+
+        .services {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 20px;
+        }
+
+        .service-card {
+            background: #ffffff;
+            border: 1px solid #ead9bd;
+            padding: 28px;
+            border-radius: 16px;
+            transition: 0.3s;
+            box-shadow: 0 5px 18px rgba(91,40,10,0.06);
+        }
+
+        .service-card:hover {
+            transform: translateY(-5px);
+            border-color: #d99200;
+        }
+
+        .icon {
+            width: 52px;
+            height: 52px;
+            border-radius: 12px;
+            background: #fff1c9;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 25px;
+            margin-bottom: 18px;
+        }
+
+        .service-card h3 {
+            margin-bottom: 8px;
+            color: #7b1e1e;
+        }
+
+        .service-card p {
+            color: #765e4c;
+        }
+
+        /* BUDGET */
+
+        .budget {
+            background: linear-gradient(
+                135deg,
+                #7b1e1e,
+                #a83232
+            );
+            border-radius: 22px;
+            padding: 50px;
+            text-align: center;
+            color: white;
+            box-shadow: 0 10px 30px rgba(123,30,30,0.2);
+        }
+
+        .budget h2 {
+            font-size: 36px;
+            margin-bottom: 15px;
+            color: #ffd166;
+        }
+
+        .budget p {
+            color: #ffe8c0;
+            max-width: 750px;
+            margin: auto;
+        }
+
+        .budget strong {
+            color: #ffffff;
+        }
+
+        /* WORK TYPES */
+
+        .work-list {
+            display: flex;
+            justify-content: center;
+            gap: 12px;
+            flex-wrap: wrap;
+        }
+
+        .work-item {
+            background: #ffffff;
+            border: 1px solid #ead9bd;
+            padding: 13px 20px;
+            border-radius: 30px;
+            color: #7b1e1e;
+            font-weight: 600;
+            box-shadow: 0 3px 10px rgba(91,40,10,0.05);
+        }
+
+        /* CONTACT */
+
+        .contact-box {
+            text-align: center;
+            background: #ffffff;
+            border: 2px solid #ead9bd;
+            border-radius: 22px;
+            padding: 55px 25px;
+            box-shadow: 0 8px 25px rgba(91,40,10,0.08);
+        }
+
+        .contact-box h2 {
+            font-size: 38px;
+            color: #7b1e1e;
+            margin-bottom: 12px;
+        }
+
+        .contact-box p {
+            color: #765e4c;
+            margin-bottom: 30px;
+        }
+
+        /* EMAIL + PHONE */
+
+        .contact-info {
+            display: flex;
+            justify-content: center;
+            gap: 15px;
+            flex-wrap: wrap;
+            margin-bottom: 30px;
+        }
+
+        .contact-info a {
+            display: inline-block;
+            background: #fff7e5;
+            border: 1px solid #e5c98f;
+            padding: 14px 22px;
+            border-radius: 10px;
+            color: #7b1e1e !important;
+            font-weight: 700;
+            transition: 0.25s;
+        }
+
+        .contact-info a:hover {
+            background: #fff0c7;
+            transform: translateY(-2px);
+        }
+
+        /* BOTTOM BUTTONS */
+
+        .contact-actions {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            gap: 14px;
+            flex-wrap: wrap;
+        }
+
+        .contact-actions .call-btn {
+            display: inline-block;
+            background: #ffd166;
+            color: #5b160f !important;
+            border: 2px solid #ffd166;
+            padding: 14px 28px;
+            border-radius: 9px;
+            font-weight: 800;
+            transition: 0.25s;
+        }
+
+        .contact-actions .email-btn {
+            display: inline-block;
+            background: #7b1e1e;
+            color: #ffffff !important;
+            border: 2px solid #7b1e1e;
+            padding: 14px 28px;
+            border-radius: 9px;
+            font-weight: 800;
+            transition: 0.25s;
+        }
+
+        .contact-actions .call-btn:hover,
+        .contact-actions .email-btn:hover {
+            transform: translateY(-3px);
+        }
+
+        /* FOOTER */
+
+        footer {
+            text-align: center;
+            padding: 35px 20px;
+            background: #5b160f;
+            color: #f4d9b5;
+        }
+
+        footer a {
+            color: #ffd166;
+        }
+
+        /* MOBILE */
+
+        @media (max-width: 700px) {
+
+            nav {
+                padding: 17px 5%;
+            }
+
+            .hero {
+                min-height: 540px;
+            }
+
+            .hero h1 {
+                font-size: 45px;
+            }
+
+            .hero p {
+                font-size: 16px;
+            }
+
+            section {
+                padding: 60px 0;
+            }
+
+            .about-grid,
+            .services {
+                grid-template-columns: 1fr;
+            }
+
+            .budget {
+                padding: 35px 22px;
+            }
+
+            .budget h2,
+            .contact-box h2 {
+                font-size: 30px;
+            }
+
+            .container {
+                width: 90%;
+            }
+
+            .contact-info {
+                flex-direction: column;
+            }
+
+            .contact-info a {
+                width: 100%;
+            }
+
+            .contact-actions {
+                flex-direction: column;
+            }
+
+            .contact-actions a {
+                width: 100%;
+            }
+        }
+    </style>
+</head>
+
+<body>
+
+<!-- NAVBAR -->
+
+<nav>
+
+    <div class="logo">
+        Dhanraj<span>.</span>
+    </div>
+
+    <a class="nav-button"
+       href="mailto:dhanraj.dev2221@gmail.com?subject=App Development Inquiry">
+        Contact Me
+    </a>
+
+</nav>
+
+
+<!-- HERO -->
+
+<header class="hero">
+
+    <div class="hero-content">
+
+        <div class="badge">
+            👨‍💻 Android Developer • Freelancer • App Developer
+        </div>
+
+        <h1>
+            Let's Build Your
+            <span>App Idea</span>
+            Together.
+        </h1>
+
+        <p>
+            I develop custom Android applications for individuals,
+            businesses and startups — based on your requirements
+            and available budget.
+        </p>
+
+        <div class="hero-buttons">
+
+            <a class="primary-btn"
+               href="tel:+919904409036">
+                📞 Call Me
+            </a>
+
+            <a class="secondary-btn"
+               href="mailto:dhanraj.dev2221@gmail.com?subject=App Development Inquiry">
+                ✉️ Start a Project
+            </a>
+
+        </div>
+
+    </div>
+
+</header>
+
+
+<!-- ABOUT -->
+
+<section>
+
+    <div class="container">
+
+        <div class="section-title">
+            <h2>About Me</h2>
+            <p>Android development with a practical approach.</p>
+        </div>
+
+        <div class="about-grid">
+
+            <div class="glass-card">
+
+                <h3>👨‍💻 Dhanraj Makwana</h3>
+
+                <p>
+                    I am an Android app developer who enjoys turning
+                    ideas into useful and easy-to-use mobile applications.
+                </p>
+
+                <br>
+
+                <p>
+                    Whether you have a simple app idea or a complete
+                    business application requirement, I can help you
+                    plan and develop it.
+                </p>
+
+            </div>
+
+            <div class="glass-card">
+
+                <h3>🤝 Flexible Work</h3>
+
+                <p>
+                    I am available for freelance, part-time,
+                    full-time and contract-based development work,
+                    depending on the project.
+                </p>
+
+                <br>
+
+                <p>
+                    Have an idea? Contact me and let's discuss
+                    your requirements.
+                </p>
+
+            </div>
+
+        </div>
+
+    </div>
+
+</section>
+
+
+<!-- SERVICES -->
+
+<section>
+
+    <div class="container">
+
+        <div class="section-title">
+
+            <h2>What I Can Build</h2>
+
+            <p>
+                Custom solutions based on your project requirements.
+            </p>
+
+        </div>
+
+        <div class="services">
+
+            <div class="service-card">
+
+                <div class="icon">📱</div>
+
+                <h3>Android Applications</h3>
+
+                <p>
+                    Custom Android applications designed around
+                    your idea, users and business requirements.
+                </p>
+
+            </div>
+
+            <div class="service-card">
+
+                <div class="icon">🎨</div>
+
+                <h3>Modern UI</h3>
+
+                <p>
+                    Clean, responsive and user-friendly interfaces
+                    for a better app experience.
+                </p>
+
+            </div>
+
+            <div class="service-card">
+
+                <div class="icon">⚙️</div>
+
+                <h3>API & Firebase</h3>
+
+                <p>
+                    API integration, Firebase services,
+                    authentication, databases and other features.
+                </p>
+
+            </div>
+
+            <div class="service-card">
+
+                <div class="icon">🚀</div>
+
+                <h3>Play Store Publishing</h3>
+
+                <p>
+                    Help with app preparation, release builds,
+                    Play Store listing and publishing.
+                </p>
+
+            </div>
+
+        </div>
+
+    </div>
+
+</section>
+
+
+<!-- BUDGET -->
+
+<section>
+
+    <div class="container">
+
+        <div class="budget">
+
+            <h2>💰 Your Budget, Your App</h2>
+
+            <p>
+                Every project is different. I understand that
+                every client has different requirements and budgets.
+            </p>
+
+            <br>
+
+            <p>
+                <strong>
+                    I can develop your application according to
+                    your requirements and available budget.
+                </strong>
+            </p>
+
+            <br>
+
+            <p>
+                We can discuss the required features and find
+                a practical solution that provides the best value
+                for your project.
+            </p>
+
+        </div>
+
+    </div>
+
+</section>
+
+
+<!-- WORK TYPES -->
+
+<section>
+
+    <div class="container">
+
+        <div class="section-title">
+
+            <h2>Available For</h2>
+
+            <p>
+                Let's work together in the way that suits your project.
+            </p>
+
+        </div>
+
+        <div class="work-list">
+
+            <div class="work-item">
+                Freelance Projects
+            </div>
+
+            <div class="work-item">
+                Part-Time Work
+            </div>
+
+            <div class="work-item">
+                Full-Time Opportunities
+            </div>
+
+            <div class="work-item">
+                Contract Projects
+            </div>
+
+            <div class="work-item">
+                Custom Android Apps
+            </div>
+
+        </div>
+
+    </div>
+
+</section>
+
+
+<!-- CONTACT -->
+
+<section>
+
+    <div class="container">
+
+        <div class="contact-box">
+
+            <h2>Have an App Idea?</h2>
+
+            <p>
+                You can contact me anytime to discuss your idea,
+                requirements, features and budget.
+            </p>
+
+            <!-- EMAIL + PHONE -->
+
+            <div class="contact-info">
+
+                <a href="mailto:dhanraj.dev2221@gmail.com">
+                    📧 dhanraj.dev2221@gmail.com
+                </a>
+
+                <a href="tel:+919904409036">
+                    📞 +91 99044 09036
+                </a>
+
+            </div>
+
+            <!-- CALL + EMAIL BUTTONS -->
+
+            <div class="contact-actions">
+
+                <a class="call-btn"
+                   href="tel:+919904409036">
+                    📞 Call Me
+                </a>
+
+                <a class="email-btn"
+                   href="mailto:dhanraj.dev2221@gmail.com?subject=I Have an App Idea">
+                    ✉️ Email Me
+                </a>
+
+            </div>
+
+        </div>
+
+    </div>
+
+</section>
+
+
+<!-- FOOTER -->
+
+<footer>
+
+    <p>
+        © 2026 Dhanraj Makwana. All rights reserved.
+    </p>
+
+    <p style="margin-top: 8px;">
+        Android App Developer & Freelance Developer
+    </p>
+
+    <p style="margin-top: 15px;">
+
+        <a href="index.html">Home</a>
+        &nbsp; • &nbsp;
+        <a href="privacy-policy.html">Privacy Policy</a>
+
+    </p>
+
+</footer>
+
+</body>
+</html>
